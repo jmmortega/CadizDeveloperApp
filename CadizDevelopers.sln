@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CadizDevelopers.Core", "CadizDevelopers.Core\CadizDevelopers.Core.csproj", "{51F359BD-FC45-4F9F-BB28-1096E633E400}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CadizDevelopers.Droid", "CadizDevelopers.Droid\CadizDevelopers.Droid.csproj", "{44B30626-EC83-488D-BF28-905F9E6FAD02}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CadizDevelopers.WP7", "CadizDevelopers.WP7\CadizDevelopers.WP7.csproj", "{21B669CF-C6D7-4673-B056-6A2165EBCF19}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{51F359BD-FC45-4F9F-BB28-1096E633E400}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51F359BD-FC45-4F9F-BB28-1096E633E400}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51F359BD-FC45-4F9F-BB28-1096E633E400}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51F359BD-FC45-4F9F-BB28-1096E633E400}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44B30626-EC83-488D-BF28-905F9E6FAD02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44B30626-EC83-488D-BF28-905F9E6FAD02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44B30626-EC83-488D-BF28-905F9E6FAD02}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{44B30626-EC83-488D-BF28-905F9E6FAD02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44B30626-EC83-488D-BF28-905F9E6FAD02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44B30626-EC83-488D-BF28-905F9E6FAD02}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{21B669CF-C6D7-4673-B056-6A2165EBCF19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21B669CF-C6D7-4673-B056-6A2165EBCF19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21B669CF-C6D7-4673-B056-6A2165EBCF19}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{21B669CF-C6D7-4673-B056-6A2165EBCF19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21B669CF-C6D7-4673-B056-6A2165EBCF19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21B669CF-C6D7-4673-B056-6A2165EBCF19}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
