@@ -3,10 +3,12 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"       
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:lang="clr-namespace:CadizDevelopers.Core.Resources;assembly=CadizDevelopers.Core"                
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone">
 
     <!--Recursos de la aplicación-->
-    <Application.Resources>
+    <Application.Resources>        
+        <lang:LanguageProvider x:Key="LanguageProvider"/>
     </Application.Resources>
 
     <Application.ApplicationLifetimeObjects>

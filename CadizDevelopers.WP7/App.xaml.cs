@@ -57,12 +57,21 @@ namespace CadizDevelopers.WP7
                 PhoneApplicationService.Current.UserIdleDetectionMode = IdleDetectionMode.Disabled;
             }
 
+
+            var setup = new Setup(RootFrame);
+            setup.Initialize();
         }
 
-        // Código para ejecutar cuando la aplicación se inicia (p.ej. a partir de Inicio)
-        // Este código no se ejecutará cuando la aplicación se reactive
         private void Application_Launching(object sender, LaunchingEventArgs e)
         {
+            RootFrame.Navigating += RootFrameOnNavigating;
+        }
+
+        private void RootFrameOnNavigating(object sender, NavigatingCancelEventArgs args)
+        {
+            args.Cancel = true;
+            RootFrame.Navigating -= RootFrameOnNavigating;
+            RootFrame.Dispatcher.BeginInvoke(() => { Cirrious.CrossCore.Mvx.Resolve<Cirrious.MvvmCross.ViewModels.IMvxAppStart>().Start(); });
         }
 
         // Código para ejecutar cuando la aplicación se activa (se trae a primer plano)

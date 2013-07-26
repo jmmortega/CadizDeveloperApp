@@ -1,0 +1,57 @@
+﻿<views:MvxPhonePage
+    x:Class="CadizDevelopers.WP7.Views.AddUserView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:views="clr-namespace:Cirrious.MvvmCross.WindowsPhone.Views;assembly=Cirrious.MvvmCross.WindowsPhone"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot es la cuadrícula raíz donde se coloca todo el contenido de la página-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contiene el nombre de la aplicación y el título de la página-->
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Text="{Binding ActualMessages.AplicationName, Source={StaticResource LanguageProvider}}" Style="{StaticResource PhoneTextNormalStyle}"/>
+        </StackPanel>
+
+        <!--ContentPanel. Colocar aquí el contenido adicional-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+
+            <TextBlock Text="{Binding ActualMessages.AddUserViewUserName, Source={StaticResource LanguageProvider}}" Style="{StaticResource PhoneTextNormalStyle}"
+                       Margin="40,0,0,0"/>
+            
+            <TextBox Text="{Binding UserName,Mode=TwoWay}" 
+                     Height="70" Width="400" VerticalAlignment="Top"
+                     Margin="0,20,0,0"/>
+
+            <TextBlock Text="{Binding ActualMessages.AddUserViewPassword, Source={StaticResource LanguageProvider}}" Style="{StaticResource PhoneTextNormalStyle}"                       
+                       Margin="40,100,0,0"/>
+            
+            <TextBox Text="{Binding Mail,Mode=TwoWay}"
+                       Height="70" Width="400" VerticalAlignment="Top"
+                       Margin="0,130,0,0"/>
+
+            <Button Width="200" Height="75" Content="{Binding ActualMessages.AddUserViewFromCamera, Source={StaticResource LanguageProvider}}"
+                    HorizontalAlignment="Left" Tap="ButtonFromCamera"/>
+            <Button Width="200" Height="75" Content="{Binding ActualMessages.AddUserViewPictures, Source={StaticResource LanguageProvider}}"
+                    HorizontalAlignment="Right" Tap="ButtonFromPicture"/>
+
+            <Button Width="200" Height="75" Content="{Binding ActualMessages.Save, Source={StaticResource LanguageProvider}}"
+                    HorizontalAlignment="Center" Tap="ButtonSave"
+                    Margin="0,150,0,0"/>
+        </Grid>
+    </Grid>
+
+</views:MvxPhonePage>
