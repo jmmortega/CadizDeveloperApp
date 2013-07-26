@@ -1,13 +1,16 @@
-﻿using Bfax.Core.Resources;
-using Bfax.Core.Services;
-using Bfax.Core.Services.Interfaces;
+﻿using CadizDevelopers.Core.Services;
+using CadizDevelopers.Core.Services.Interfaces;
 using Facebook;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Bfax.WP7.Services
+#if WINDOWS_PHONE
+namespace CadizDevelopers.WP7.Services
+#elif ANDROID
+namespace CadizDevelopers.Droid.Services
+#endif
 {
     public class FacebookService : IFacebookService
     {
@@ -129,7 +132,7 @@ namespace Bfax.WP7.Services
             {
                 if (oauthResult != null)
                 {
-                    callbackError.Invoke(new Exception(FacebookMessages.ErrorParseOauth));
+                    callbackError.Invoke(new Exception("Error in oauth"));
                 }
             }
 
@@ -150,7 +153,10 @@ namespace Bfax.WP7.Services
                         }
 
                         var resultData = (IDictionary<string, object>)e.GetResultData();
-                        this.UserId = resultData["id"].ToString();
+                        if (resultData.ContainsKey("id") == true)
+                        {
+                            this.UserId = resultData["id"].ToString();
+                        }
 
                         callbackOK.Invoke(new FacebookLoginSucceedArgs(int.Parse(this.UserId), this.AccessToken));
                     };
@@ -159,7 +165,7 @@ namespace Bfax.WP7.Services
                 }
                 else
                 {
-                    callbackError.Invoke(new Exception(FacebookMessages.ErrorParseOauth));
+                    callbackError.Invoke(new Exception("Error in oauth"));
                 }
             }
         }

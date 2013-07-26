@@ -9,13 +9,13 @@ namespace CadizDevelopers.Core.Utils
 {
     public class ParserApi
     {
-        public List<User> ParseUser(List<KeyValuePair<string,JToken>> obj)
+        public List<User> ParseUser(JArray obj)
         {
             List<User> users = new List<User>();
 
-            foreach (KeyValuePair<string,JToken> value in obj)
+            foreach (JToken token in obj)
             {
-                var token = value.Value;
+                
                 string user = token.SelectToken("Name").Value<string>();
                 string mail = token.SelectToken("Mail").Value<string>();
 

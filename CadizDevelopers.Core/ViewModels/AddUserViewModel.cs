@@ -1,4 +1,5 @@
 ﻿
+using CadizDevelopers.Core.Utils;
 using Cirrious.MvvmCross.Plugins.PictureChooser;
 using Cirrious.MvvmCross.ViewModels;
 using System;
@@ -52,10 +53,46 @@ namespace CadizDevelopers.Core.ViewModels
             get { return m_image; }
             set { m_image = value; }
         }
+
+        private string m_message;
+
+        public string Message
+        {
+            get { return m_message; }
+            set 
+            { 
+                m_message = value;
+                this.RaisePropertyChanged(() => this.Message);
+            }
+        }
+
         
         #endregion
 
         #region Commands
+
+        public ICommand FromCamera
+        {
+            get
+            {
+                return new MvxCommand(() =>
+                    {
+                        m_pictureChooser.TakePicture(400, 95, (stream) => { m_image = stream; }, () => { });
+                    });
+            }
+        }
+
+        public ICommand FromGallery
+        {
+            get
+            {
+                return new MvxCommand(() =>
+                    {
+                        m_pictureChooser.ChoosePictureFromLibrary(400, 95, (stream) => { m_image = stream; }, () => { });
+                    });
+            }
+        }
+
 
         public ICommand AddImageCommand
         {
@@ -75,13 +112,26 @@ namespace CadizDevelopers.Core.ViewModels
             }
         }
 
+        private const string c_saveUser = "http://cadizdevelopersapi.herokuapp.com/Add?name={0}&mail={1}";        
+
         public ICommand SaveCommand
         {
             get
             {
                 return new MvxCommand(() =>
                     {
-                        //Send post with data.
+                        new HttpCalls().Post(
+                            string.Format(c_saveUser, new object[] { this.UserName, this.Mail }),
+                            "x-www-form-urlencoded",
+                            (stream) =>
+                            {
+                                this.Message = "Saved";
+                                this.Close(this);
+                            },
+                            (error) =>
+                            {
+                                this.Message = error.Message;   
+                            });                        
                     });
             }
         }

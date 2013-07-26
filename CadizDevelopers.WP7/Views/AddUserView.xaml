@@ -48,9 +48,11 @@
             <Button Width="200" Height="75" Content="{Binding ActualMessages.AddUserViewPictures, Source={StaticResource LanguageProvider}}"
                     HorizontalAlignment="Right" Tap="ButtonFromPicture"/>
 
-            <Button Width="200" Height="75" Content="{Binding ActualMessages.Save, Source={StaticResource LanguageProvider}}"
+            <Button Width="200" Height="75" Content="{Binding ActualMessages.AddUserViewSave, Source={StaticResource LanguageProvider}}"
                     HorizontalAlignment="Center" Tap="ButtonSave"
                     Margin="0,150,0,0"/>
+            
+            <TextBlock Text="{Binding Message}" Margin="0,250,0,0" HorizontalAlignment="Center"/>
         </Grid>
     </Grid>
 

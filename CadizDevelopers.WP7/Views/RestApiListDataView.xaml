@@ -36,7 +36,7 @@
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
-                            <TextBlock Text="{Binding User}" FontStyle="Italic" FontWeight="Bold"/>
+                            <TextBlock Text="{Binding Name}" FontStyle="Italic" FontWeight="Bold"/>
                             <TextBlock Text="{Binding Mail}" Margin="20,0,0,0" TextWrapping="Wrap"/>
                         </StackPanel>
                     </DataTemplate>

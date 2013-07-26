@@ -103,11 +103,9 @@ namespace CadizDevelopers.Core.ViewModels
                     var reader = new StreamReader(stream);
                     string rawUsers = reader.ReadToEnd();
 
-                    var values = JObject.Parse(rawUsers);
-
-                    var a = values.ToString();
-
-                    //this.Users = new ParserApi().ParseUser(JObject.Parse(rawUsers).ToList());
+                    var values = JArray.Parse(rawUsers);
+                                        
+                    this.Users = new ParserApi().ParseUser(values);
                 },                    
                 (exception) =>                    
                 {
